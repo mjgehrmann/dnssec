@@ -51,11 +51,11 @@ def validate_dnssec(domain: str) -> dict:
     result = {"message": "empty", "code": STATE_UNKNOWN}
 
     # get nameservers (NS) for the domain
-    response = dns.resolver.query(domain, rdtype=dns.rdatatype.NS)
+    response = dns.resolver.resolve(domain, rdtype=dns.rdatatype.NS)
 
     # use the first NS
     ns_server = response.rrset[0]
-    response = dns.resolver.query(str(ns_server), rdtype=dns.rdatatype.A)
+    response = dns.resolver.resolve(str(ns_server), rdtype=dns.rdatatype.A)
     ns_address = response.rrset[0].to_text()
 
     # get DNSKEY for zone
