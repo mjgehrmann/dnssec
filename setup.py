@@ -1,13 +1,12 @@
-from setuptools import setup
 import setuptools
 import codecs
 
 with codecs.open("README.md", "r", "utf-8") as f:
     readme = f.read()
 
-setup(
+setuptools.setup(
     name="dnssec",
-    version="v1.0.0",
+    version="1.0.0",
     scripts=["dnssec"],
     url="https://github.com/patrikskrivanek/dnssec",
     download_url="https://github.com/patrikskrivanek/dnssec/releases",
